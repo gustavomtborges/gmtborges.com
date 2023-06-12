@@ -16,6 +16,7 @@ const { href, className, ariaLabel, title, disabled = false } = Astro.props;
   class={`group inline-block ${className}`}
   aria-label={ariaLabel}
   title={title}
+  target="_blank"
   aria-disabled={disabled}
 >
   <slot />

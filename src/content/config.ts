@@ -23,4 +23,8 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { blog };
+const short = defineCollection({
+  schema: blog,
+});
+
+export const collections = { blog, short };

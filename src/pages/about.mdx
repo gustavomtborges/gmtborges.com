@@ -1,0 +1,29 @@
+---
+layout: ../layouts/AboutLayout.astro
+title: "About"
+---
+
+import LinkButton from "@components/LinkButton.astro";
+import Socials from "@components/Socials.astro";
+import { SOCIALS } from "@config";
+
+export const socialCount = SOCIALS.filter(social => social.active).length;
+
+Bachalor in Software Enginnering from Universidade Federal de Goiás. I
+have worked in the IT market for 12 years, from _startups_ to _big techs_.
+
+Since the beginning of my career, I have been interested in practices that
+improve _design quality, and operation_. Later in 2015, I discovered that it has a name: _DevOps_.
+
+I'm working as an independent consultant in Software Engineering, DevOps, and Solution
+Architecture. Currently, focused on improve the software life cicle management at <LinkButton
+    className="hover:text-skin-accent underline underline-offset-4 decoration-dashed"
+    href="https://tipspace.gg">tipspace.gg</LinkButton>
+
+{
+socialCount > 0 && (
+
+<div class="mt-4 flex flex-col sm:flex-row sm:items-center">
+  <Socials />
+</div>
+) }

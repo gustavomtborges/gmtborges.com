@@ -9,19 +9,28 @@ import SearchBar from "@components/Search";
 
 // Retrieve all articles
 const posts = await getCollection("blog", ({ data }) => !data.draft);
+const shorts = await getCollection("short", ({ data }) => !data.draft);
 
 // List of items to search in
-const searchList = posts.map(({ data }) => ({
+const postList = posts.map(({ data }) => ({
   title: data.title,
   description: data.description,
+  isShort: false,
   data,
+}));
+const shortList = shorts.map(({ data, body }) => ({
+  title: data.title,
+  description: data.description,
+  isShort: true,
+  data,
+  body,
 }));
 ---
 
-<Layout title={`Search | ${SITE.title}`}>
+<Layout title={`Search - ${SITE.author}`}>
   <Header activeNav="search" />
   <Main pageTitle="Search" pageDesc="Search any article ...">
-    <SearchBar client:load searchList={searchList} />
+    <SearchBar client:load searchList={[...postList, ...shortList]} />
   </Main>
   <Footer />
 </Layout>

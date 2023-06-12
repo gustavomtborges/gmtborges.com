@@ -9,11 +9,12 @@ import getUniqueTags from "@utils/getUniqueTags";
 import { SITE } from "@config";
 
 const posts = await getCollection("blog");
+const shorts = await getCollection("short");
 
-let tags = getUniqueTags(posts);
+let tags = getUniqueTags(posts, shorts);
 ---
 
-<Layout title={`Tags | ${SITE.title}`}>
+<Layout title={`Tags - ${SITE.author}`}>
   <Header activeNav="tags" />
   <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
     <ul>

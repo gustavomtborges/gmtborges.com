@@ -1,4 +1,5 @@
 export type Site = {
+  domain: string;
   website: string;
   author: string;
   desc: string;
@@ -6,6 +7,7 @@ export type Site = {
   ogImage?: string;
   lightAndDarkMode: boolean;
   postPerPage: number;
+  shortsPerPage: number;
 };
 
 export type SocialObjects = {
@@ -39,4 +41,5 @@ export type SocialMedia =
   | "Skype"
   | "Steam"
   | "Telegram"
-  | "Mastodon";
+  | "Mastodon"
+  | "RSS";

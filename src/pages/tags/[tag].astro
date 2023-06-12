@@ -7,9 +7,12 @@ import Footer from "@components/Footer.astro";
 import Card from "@components/Card";
 import getUniqueTags from "@utils/getUniqueTags";
 import getPostsByTag from "@utils/getPostsByTag";
+import getShortsByTag from "@utils/getShortsByTag";
 import slugify from "@utils/slugify";
 import { SITE } from "@config";
 import getSortedPosts from "@utils/getSortedPosts";
+import getSortedShorts from "@utils/getSortedShorts";
+import CardShort from "@components/CardShort";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -18,8 +21,9 @@ export interface Props {
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
+  const shorts = await getCollection("short");
 
-  const tags = getUniqueTags(posts);
+  const tags = getUniqueTags(posts, shorts);
 
   return tags.map(tag => {
     return {
@@ -33,23 +37,36 @@ const { tag } = Astro.props;
 
 const posts = await getCollection("blog", ({ data }) => !data.draft);
 
+const shorts = await getCollection("short", ({ data }) => !data.draft);
+
 const tagPosts = getPostsByTag(posts, tag);
+const tagShorts = getShortsByTag(shorts, tag);
 
 const sortTagsPost = getSortedPosts(tagPosts);
+const sortTagsShorts = getSortedShorts(tagShorts);
 ---
 
-<Layout title={`Tag:${tag} | ${SITE.title}`}>
+<Layout title={`Tag:${tag} - ${SITE.author}`}>
   <Header activeNav="tags" />
   <Main
     pageTitle={[`Tag:`, `${tag}`]}
     titleTransition={tag}
-    pageDesc={`All the articles with the tag "${tag}".`}
+    pageDesc={`All the content with the tag "${tag}".`}
   >
     <h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
     <ul>
       {
         sortTagsPost.map(({ data }) => (
           <Card href={`/posts/${slugify(data)}`} frontmatter={data} />
+        ))
+      }
+      {
+        sortTagsShorts.map(({ data, body }) => (
+          <CardShort
+            href={`/shorts/${slugify(data)}`}
+            frontmatter={data}
+            content={body}
+          />
         ))
       }
     </ul>
