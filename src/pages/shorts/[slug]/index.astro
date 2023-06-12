@@ -1,0 +1,29 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+
+  const postResult = posts.map(post => ({
+    params: { slug: post.slug },
+  }));
+
+  return postResult;
+}
+
+const { slug } = Astro.params;
+---
+
+<head>
+  <title>Redirecting to: https://gmtborges.com/posts/{slug}</title>
+  <meta
+    http-equiv="refresh"
+    content={`0; url=https://gmtborges.com/posts/${slug}`}
+  />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href={`https://gmtborges.com/posts/${slug}`} />
+</head>

@@ -23,7 +23,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Mingalaba</h1>
+      <h1>Gustavo Martins T. Borges</h1>
       <a
         target="_blank"
         href="/rss.xml"
@@ -40,20 +40,24 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </svg>
         <span class="sr-only">RSS Feed</span>
       </a>
+      <h2>Software Engineer | DevOps | Solution Architect</h2>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        After 12 years accumulating experience, from startups to Big Techs, I'm
+        now working as a DevOps and Architect Consultant, and my mission is to
+        help small to medium companies with <strong>cost reduction</strong> in the
+        cloud,
+        <strong>modernization</strong> to scale, and observability for <strong
+          >continuous improvement</strong
+        >.
       </p>
       <p>
-        Read the blog posts or check
+        Check my background in
         <LinkButton
           className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href="/consulting"
         >
-          README
+          Consulting
         </LinkButton> for more info.
       </p>
       {
@@ -130,7 +134,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     @apply pb-6 pt-8;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+    @apply inline-block text-2xl font-bold sm:text-5xl;
+  }
+  #hero h2 {
+    @apply mb-2 inline-block font-body italic sm:mb-8 sm:text-xl;
   }
   #hero .rss-link {
     @apply mb-6;
