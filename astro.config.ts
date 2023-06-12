@@ -16,6 +16,9 @@ export default defineConfig({
     react(),
     sitemap(),
   ],
+  redirects: {
+    "/shorts/[slug]": "/posts/[slug]",
+  },
   markdown: {
     remarkPlugins: [
       remarkToc,
@@ -27,7 +30,7 @@ export default defineConfig({
       ],
     ],
     shikiConfig: {
-      theme: "one-dark-pro",
+      theme: "github-dark",
       wrap: true,
     },
   },

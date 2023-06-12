@@ -1,10 +1,10 @@
 ---
-import { LOGO_IMAGE, SITE } from "@config";
+import { SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
-  activeNav?: "posts" | "tags" | "about" | "search";
+  activeNav?: "posts" | "tags" | "consulting" | "search";
 }
 
 const { activeNav } = Astro.props;
@@ -14,19 +14,17 @@ const { activeNav } = Astro.props;
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <a href="/" class="logo whitespace-nowrap">
-        {
-          LOGO_IMAGE.enable ? (
-            <img
-              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
-              alt={SITE.title}
-              width={LOGO_IMAGE.width}
-              height={LOGO_IMAGE.height}
-            />
-          ) : (
-            SITE.title
-          )
-        }
+      <a href="/" class="logo">
+        <img
+          class="light-only md:w-52 lg:w-64 w-44"
+          src="/assets/light-logo.svg"
+          alt="G M T Borges"
+        />
+        <img
+          class="dark-only md:w-52 lg:w-64 w-44"
+          src="/assets/dark-logo.svg"
+          alt="G M T Borges"
+        />
       </a>
       <nav id="nav-menu">
         <button
@@ -66,8 +64,11 @@ const { activeNav } = Astro.props;
             </a>
           </li>
           <li>
-            <a href="/about" class={activeNav === "about" ? "active" : ""}>
-              About
+            <a
+              href="/consulting"
+              class={activeNav === "consulting" ? "active" : ""}
+            >
+              Consulting
             </a>
           </li>
           <li>
@@ -117,6 +118,12 @@ const { activeNav } = Astro.props;
 </header>
 
 <style>
+  :global([data-theme="light"]) .dark-only {
+    display: none;
+  }
+  :global([data-theme="dark"]) .light-only {
+    display: none;
+  }
   #skip-to-content {
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
   }
@@ -146,7 +153,7 @@ const { activeNav } = Astro.props;
     @apply col-span-2 flex items-center justify-center;
   }
   nav ul li a {
-    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
+    @apply w-full px-4 py-3 text-center font-display font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
   }
   nav ul li:nth-last-child(2) a {
     @apply w-auto;
@@ -156,7 +163,7 @@ const { activeNav } = Astro.props;
     @apply col-span-1;
   }
   nav a.active {
-    @apply underline decoration-wavy decoration-2 underline-offset-4;
+    @apply underline decoration-wavy decoration-2 underline-offset-8;
   }
   nav a.active svg {
     @apply fill-skin-accent;
@@ -206,6 +213,15 @@ const { activeNav } = Astro.props;
       );
       menuItems?.classList.toggle("display-none");
     });
+  }
+
+  // Toggle img logo
+  const themeValue = document.firstElementChild?.getAttribute("data-theme");
+  const imgLogo = document.querySelector("#img-logo");
+  if (themeValue === "dark") {
+    imgLogo?.setAttribute("src", "/assets/dark-logo.svg");
+  } else {
+    imgLogo?.setAttribute("src", "/assets/light-logo.svg");
   }
 
   toggleNav();
