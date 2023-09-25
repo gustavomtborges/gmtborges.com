@@ -17,6 +17,7 @@ const postList = posts.map(({ data }) => ({
   description: data.description,
   isShort: false,
   data,
+  body: "",
 }));
 const shortList = shorts.map(({ data, body }) => ({
   title: data.title,
@@ -29,7 +30,7 @@ const shortList = shorts.map(({ data, body }) => ({
 
 <Layout title={`Search - ${SITE.author}`}>
   <Header activeNav="search" />
-  <Main pageTitle="Search" pageDesc="Search any article ...">
+  <Main pageTitle="Search" pageDesc="Search any content ...">
     <SearchBar client:load searchList={[...postList, ...shortList]} />
   </Main>
   <Footer />

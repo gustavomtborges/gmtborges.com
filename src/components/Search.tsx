@@ -3,11 +3,14 @@ import { useEffect, useRef, useState, useMemo } from "react";
 import Card from "@components/Card";
 import slugify from "@utils/slugify";
 import type { CollectionEntry } from "astro:content";
+import CardShort from "./CardShort";
 
 export type SearchItem = {
   title: string;
-  description: string;
+  description?: string;
+  isShort: boolean;
   data: CollectionEntry<"blog">["data"];
+  body: string;
 };
 
 interface Props {
@@ -33,10 +36,11 @@ export default function SearchBar({ searchList }: Props) {
   const fuse = useMemo(
     () =>
       new Fuse(searchList, {
-        keys: ["title", "description"],
+        keys: ["title", "description", "body"],
         includeMatches: true,
         minMatchCharLength: 2,
         threshold: 0.5,
+        distance: 500,
       }),
     [searchList]
   );
@@ -49,7 +53,7 @@ export default function SearchBar({ searchList }: Props) {
     if (searchStr) setInputVal(searchStr);
 
     // put focus cursor at the end of the string
-    setTimeout(function() {
+    setTimeout(function () {
       inputRef.current!.selectionStart = inputRef.current!.selectionEnd =
         searchStr?.length || 0;
     }, 50);

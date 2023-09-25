@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 
 export interface Props {
   href?: string;
-  frontmatter: CollectionEntry<"shorts">["data"];
+  frontmatter: CollectionEntry<"short">["data"];
   content: string;
   secHeading?: boolean;
 }

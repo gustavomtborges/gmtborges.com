@@ -5,11 +5,11 @@ const getUniqueTags = (
   posts: CollectionEntry<"blog">[],
   shorts: CollectionEntry<"short">[]
 ) => {
-  const filteredPosts = posts.filter(({ data }) => !data.draft);
-  const filteredShorts = shorts.filter(({ data }) => !data.draft);
+  const filteredPosts = posts.filter(({ data }) => !data.draft && data.tags);
+  const filteredShorts = shorts.filter(({ data }) => !data.draft && data.tags);
   const tags: string[] = [...filteredShorts, ...filteredPosts]
     .flatMap(post => post.data.tags)
-    .map(tag => slugifyStr(tag))
+    .map(tag => slugifyStr(tag!))
     .filter(
       (value: string, index: number, self: string[]) =>
         self.indexOf(value) === index
