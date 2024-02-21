@@ -1,4 +1,4 @@
-import type { Site, SocialObjects } from "./types";
+import type {Site, SocialObjects} from "./types";
 
 export const SITE: Site = {
   domain: "gmtborges.com",
@@ -45,7 +45,7 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Mail",
-    href: "mailto:contact@gmtborges.com",
+    href: "mailto:gustavo@gmtborges.com",
     linkTitle: `Send an email to ${SITE.title}`,
     active: true,
   },
