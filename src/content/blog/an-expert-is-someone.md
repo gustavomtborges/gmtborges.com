@@ -6,7 +6,7 @@ tags:
   - quotes
 ---
 
-> An expert is someone who knows some of the worst mistakes that can
-> be made in his subject, and how to avoid them.
+> An expert is someone who knows some of the worst mistakes that can be made in
+> his subject, and how to avoid them.
 
 ~Werner Heisenberg

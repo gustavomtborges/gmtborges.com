@@ -9,5 +9,6 @@ tags:
 It's interesting how Populism approach is evil and mascaraed in any field.
 
 In the last decade, popular languages are only face lifting their syntax,
-because it's impossible to change their bad architecture, mainly about distributed computation.
-But even make only "distractions" the followers are applaud this "revolution".
+because it's impossible to change their bad architecture, mainly about
+distributed computation. But even make only "distractions" the followers are
+applaud this "revolution".

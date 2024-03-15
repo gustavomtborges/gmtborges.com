@@ -5,5 +5,6 @@ tags:
   - complexity
 ---
 
-Elasticsearch was so good in the past. It's unbelievable how it getting worst as new features is added (x-pack things...).
-Sometimes new features can destroy your product.
+Elasticsearch was so good in the past. It's unbelievable how it getting worst as
+new features is added (x-pack things...). Sometimes new features can destroy
+your product.

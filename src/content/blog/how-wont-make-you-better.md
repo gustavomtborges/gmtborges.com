@@ -14,7 +14,8 @@ _How to apply design patterns in your project_\
 _How to create a k8s cluster_\
 _How to ..._
 
-Knowing "How" won't take you anywhere. "How" is procedural, a machine can reproduce.
+Knowing "How" won't take you anywhere. "How" is procedural, a machine can
+reproduce.
 
 Start asking **Why**
 
@@ -22,7 +23,7 @@ _Why is a machine learning model?_\
 _Why do I need design patterns in my project?_\
 _Why am I create a k8s cluster?_
 
-"Why" will awaken your curiosity, a genuinely human ability.
-And don't wait for "Why" posts. Go find yours.
+"Why" will awaken your curiosity, a genuinely human ability. And don't wait for
+"Why" posts. Go find yours.
 
 Be more human, and you will be a better professional.

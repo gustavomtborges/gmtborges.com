@@ -6,7 +6,8 @@ tags:
   - quotes
 ---
 
-> Increasingly, people seem to misinterpret complexity as sophistication,
-> which is baffling – the incomprehensible should cause suspicion rather than admiration.
+> Increasingly, people seem to misinterpret complexity as sophistication, which
+> is baffling – the incomprehensible should cause suspicion rather than
+> admiration.
 
 ~ Niklaus Wirth

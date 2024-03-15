@@ -6,13 +6,10 @@
   "singleQuote": false,
   "jsxSingleQuote": false,
   "trailingComma": "es5",
-  "bracketSpacing": false,
+  "bracketSpacing": true,
   "proseWrap": "always",
   "endOfLine": "lf",
-  "plugins": [
-    "prettier-plugin-astro",
-    "prettier-plugin-tailwindcss"
-  ],
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   "overrides": [
     {
       "files": "*.astro",
